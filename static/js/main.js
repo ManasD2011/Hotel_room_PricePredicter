@@ -1,24 +1,18 @@
-/**
- * Hotel Price Prediction System — Frontend Logic
- * ================================================
- * Handles form submission, API calls, and dynamic rendering of results.
- */
+// Hotel Price Prediction System — Frontend Logic
+// ================================================
+// Handles form submission, API calls, and dynamic rendering of results.
 
 document.addEventListener('DOMContentLoaded', () => {
     initApp();
 });
 
-/**
- * Initialize the application.
- */
+// Initialize the application.
 function initApp() {
     loadOptions();
     bindEvents();
 }
+// Load drop down options.
 
-/**
- * Load dropdown options from the API.
- */
 async function loadOptions() {
     try {
         const response = await fetch('/api/options');
@@ -44,9 +38,8 @@ async function loadOptions() {
     }
 }
 
-/**
- * Populate a <select> element with options.
- */
+// Populate a <select> element with options.
+
 function populateSelect(id, options) {
     const select = document.getElementById(id);
     if (!select) return;
@@ -64,9 +57,8 @@ function populateSelect(id, options) {
     });
 }
 
-/**
- * Bind event listeners.
- */
+// Bind event listeners.
+
 function bindEvents() {
     const form = document.getElementById('predictionForm');
     if (form) {
@@ -74,9 +66,7 @@ function bindEvents() {
     }
 }
 
-/**
- * Handle form submission.
- */
+// Handle form submission.
 async function handleSubmit(e) {
     e.preventDefault();
 
@@ -128,9 +118,8 @@ async function handleSubmit(e) {
     }
 }
 
-/**
- * Validate form inputs.
- */
+// validate form 
+
 function validateForm() {
     const city = document.getElementById('city').value;
     const season = document.getElementById('season').value;
@@ -157,9 +146,8 @@ function validateForm() {
     return true;
 }
 
-/**
- * Highlight a field that failed validation.
- */
+// Higlight that failed field
+
 function highlightField(id) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -175,18 +163,17 @@ function highlightField(id) {
     el.focus();
 }
 
-/**
- * Render prediction results.
- */
+//Render Prediction results
+
 function renderResults(data) {
     renderPriceHero(data);
     renderModelCards(data.predictions);
     renderHotelCards(data.recommendations);
 }
 
-/**
- * Render the main price display.
- */
+
+// Render the main price display.
+
 function renderPriceHero(data) {
     const priceValue = document.getElementById('avgPrice');
     const priceMeta = document.getElementById('priceMeta');
@@ -208,9 +195,8 @@ function renderPriceHero(data) {
     }
 }
 
-/**
- * Animate a counter from 0 to target value.
- */
+//Animate counter 0 to value
+
 function animateCounter(element, target) {
     const duration = 1200;
     const start = performance.now();
@@ -235,9 +221,8 @@ function animateCounter(element, target) {
     requestAnimationFrame(update);
 }
 
-/**
- * Render model comparison cards.
- */
+//Render model cards
+
 function renderModelCards(predictions) {
     const container = document.getElementById('modelCards');
     if (!container) return;
@@ -270,10 +255,8 @@ function renderModelCards(predictions) {
         });
     }, 100);
 }
+// Render hotel cards
 
-/**
- * Render hotel recommendation cards.
- */
 function renderHotelCards(hotels) {
     const container = document.getElementById('hotelCards');
     if (!container) return;
@@ -303,9 +286,8 @@ function renderHotelCards(hotels) {
     }).join('');
 }
 
-/**
- * Show an error message.
- */
+//show an error message.
+
 function showError(message) {
     // Create a toast notification
     const toast = document.createElement('div');
