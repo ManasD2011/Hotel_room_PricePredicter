@@ -1,0 +1,50 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+*.manifest
+*.spec
+
+# ===== Virtual Environments =====
+.env
+.venv
+env/
+venv/
+ENV/
+
+# ===== Jupyter Notebooks =====
+.ipynb_checkpoints/
+
+# ===== Dataset (large CSV files) =====
+notebooks/hotel-price-data-of-cities-in-india-makemytrip/
+
+# ===== Trained Models (large binary files) =====
+models/*.h5
+models/*.keras
+models/*.pkl
+models/*.joblib
+models/*.pt
+models/*.pth
+
+# ===== IDE / Editor =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Logs & Misc =====
+*.log
+*.tmp
+*.bak
